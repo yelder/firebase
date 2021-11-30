@@ -6,9 +6,12 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 })
 export class AuthService {
 
+  userFirebase: string ="";
   constructor(private auth:AngularFireAuth) {
+
     auth.authState.subscribe(user=>{
-      console.log(user);
+      this.userFirebase=String(user?.email);
+      console.log(this.userFirebase);
     })
    }
 
